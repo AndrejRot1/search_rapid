@@ -3,11 +3,16 @@
 
 import { asset } from "$fresh/runtime.ts";
 
+import { Handlers } from "$fresh/server.ts";
 
-export default function Page() {
-  return (
-    <p>
-      <a href={asset("./test_translation.html")}>View brochure</a>
-    </p>
-  );
-}
+
+// ok I got it just created handler for automaticli load translated page
+
+
+export const handler = {
+  GET(_req: Request, _ctx: Handlers) {
+    const url = new URL(_req.url);
+    url.pathname = "./test_translation.html";
+    return Response.redirect(url.toString(), 302);
+  },
+};
