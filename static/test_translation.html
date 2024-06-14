@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect Page</title>
-    <script type="text/javascript">
-        window.onload = function() {
-            window.location.href = "https://rapid-ch.translate.goog/en/shop/katalog~c57?_x_tr_sl=en&_x_tr_tl=sl&_x_tr_hl=sl&_x_tr_pto=wapp";
-        }
-    </script>
+    <title>Open URLs in New Windows</title>
 </head>
 <body>
-    
+    <script>
+        function openWindows() {
+            const screenWidth = window.screen.availWidth;
+            const screenHeight = window.screen.availHeight;
+
+            const windowWidth = 800;
+            const windowHeight = 600;
+
+            // Calculate position for the first window (centered)
+            const firstWindowLeft = (screenWidth - windowWidth) / 2;
+            const firstWindowTop = (screenHeight - 2 * windowHeight) / 2; // Consider space for both windows
+
+            // Open the first window
+            window.open('https://rapid-ch.translate.goog/en/shop/katalog~c57?_x_tr_sl=en&_x_tr_tl=sl&_x_tr_hl=sl&_x_tr_pto=wapp', 'FirstWindow', `width=${windowWidth},height=${windowHeight},left=${firstWindowLeft},top=${firstWindowTop}`);
+
+            // Calculate position for the second window (below the first one)
+            const secondWindowTop = firstWindowTop + windowHeight;
+
+            // Open the second window
+            window.open('https://fuzinar.woomboo.com/narocila', 'SecondWindow', `width=${windowWidth},height=${windowHeight},left=${firstWindowLeft},top=${secondWindowTop}`);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            openWindows();
+        });
+    </script>
 </body>
 </html>
 
