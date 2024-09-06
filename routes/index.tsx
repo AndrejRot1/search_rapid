@@ -12,7 +12,7 @@ import { Handlers } from "$fresh/server.ts";
 export const handler = {
   GET(_req: Request, _ctx: Handlers) {
     const url = new URL(_req.url);
-    url.pathname = "./test_translation.html";
+    url.pathname = "./test.html";
     return Response.redirect(url.toString(), 302);
   },
 };
